@@ -1,2 +1,7 @@
 # ThreeJS-TypeScript
-ThreeJS-TypeScript journal
+ThreeJS-TypeScript learning path
+
+# Usage
+npm install
+npm run dev
+
