@@ -28,6 +28,8 @@ const material = new THREE.MeshBasicMaterial({
 })
 
 const cube = new THREE.Mesh(geometry, material)
+cube.add(new THREE.AxesHelper(5))
+
 scene.add(cube)
 
 window.addEventListener('resize', onWindowResize, false)
@@ -43,15 +45,28 @@ const stats = Stats()
 document.body.appendChild(stats.dom)
 
 const gui = new GUI()
-const cubeFolder = gui.addFolder('Cube')
-cubeFolder.add(cube.rotation, 'x', 0, 2 * Math.PI)
-cubeFolder.add(cube.rotation, 'y', 0, 2 * Math.PI)
-cubeFolder.add(cube.rotation, 'z', 0, 2 * Math.PI)
+const cubeFolder = gui.addFolder('cubeFolder')
+const cubeRotationFolder = cubeFolder.addFolder('cubeRotationFolder')
+cubeRotationFolder.add(cube.rotation, 'x', 0, 2 * Math.PI)
+cubeRotationFolder.add(cube.rotation, 'y', 0, 2 * Math.PI)
+cubeRotationFolder.add(cube.rotation, 'z', 0, 2 * Math.PI)
+cubeRotationFolder.open()
+
+const cubePositionFolder = cubeFolder.addFolder('cubePositionFolder')
+cubePositionFolder.add(cube.position, 'x',-10,10,0.1)
+cubePositionFolder.add(cube.position, 'y',-10,10,0.1)
+cubePositionFolder.add(cube.position, 'z',-10,10,0.1)
+cubePositionFolder.open()
+
+const cubeScaleFolder = cubeFolder.addFolder('cubeScaleFolder')
+cubeScaleFolder.add(cube.scale, 'x',0,5)
+cubeScaleFolder.add(cube.scale, 'y',0,5)
+cubeScaleFolder.add(cube.scale, 'z',0,5)
+cubeScaleFolder.open()
+
+cubeFolder.add(cube, 'visible')
 cubeFolder.open()
 
-const cameraFolder = gui.addFolder('Camera')
-cameraFolder.add(camera.position, 'z', -10, 10)
-cameraFolder.open()
 
 function animate() {
     requestAnimationFrame(animate)

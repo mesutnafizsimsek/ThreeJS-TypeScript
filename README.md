@@ -12,7 +12,8 @@ A scene is the main environment that three.js created. The 3D Objects and camera
 Scenes can have multiple objects and multiple cameras. 
 
 Renderers get a parameter of HTML canvas element and draw 2D representation of 3D environments to HTML.
-Renderers have render() function which has the the camera and scene inputs. Each renderer can render a cameras view to HTML 
+Renderers have render() function which has a Object3D object and camera.
+We can render only one object too.
 
 3D objects are added to Scenes, their default positions is 0,0,0. 
 3D objects has material and geometry properties.
@@ -24,3 +25,8 @@ Cameras has usefull LookAt function which rotates cameras to required objects' l
 Canvases should be added to HTML code. 
 Later they should be finded in JS code and connected to a Renderer objects.
 Renderers renders cameras' perspectives to Canvases.
+
+All objects in ThreeJS inherits from Object3D class.
+Scene, Camera, Cubes etc are Object3D and has same properties.
+
+
