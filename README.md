@@ -3,6 +3,7 @@ ThreeJS-TypeScript learning path
 
 # Usage
 npm install
+
 npm run dev
 
 # Explanation of Scene-Renderer-3D Objects- Cameras - Canvases
